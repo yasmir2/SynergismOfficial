@@ -734,7 +734,10 @@ function calculateOffline(forceTime) {
     forceTime = forceTime || 0
     toggleTalismanBuy(player.buyTalismanShardPercent);
     updateTalismanInventory();
-    calculateObtainium();
+    // this should fix the offline obtainium gain in challenge 14 //
+    if (player.currentChallenge.ascension != 14) {
+        calculateObtainium();
+    }
     calculateAnts();
     calculateRuneLevels();
     if (forceTime === 0) {
